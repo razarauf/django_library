@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% extends "libs/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h3>Add new books:</h3>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input class="btn btn-xs btn-primary" type="submit" value="Add Book"/>
+</form>
+{% endblock %}</title>
+</head>
+<body>
+
+</body>
+</html>

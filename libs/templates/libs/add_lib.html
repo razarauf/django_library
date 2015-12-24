@@ -1,0 +1,12 @@
+{% extends "libs/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h3>Add a new Library: </h3>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <!--Name of the Library: <input type="text" name="lib_name">-->
+    <input class="btn btn-xs btn-primary" type="submit" value="Add Library"/>
+</form>
+{% endblock %}

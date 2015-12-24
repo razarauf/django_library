@@ -1,0 +1,32 @@
+{% extends "libs/base.html" %}
+{% block content %}
+<h3>Libraries: </h3>
+
+{% if last_5_libraries %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>Library</th>
+        <th>Books</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for each_library in last_5_libraries %}
+    <tr>
+        <td>
+            {{ each_library.name }}
+        </td>
+        <td>
+            <a href = "{% url 'libs:booksInLibrary' each_library.id %}" >Available books</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+    <p>No libraries!</p>
+{% endif %}
+
+<a href="{% url 'libs:addLibraryView' %}">Add library</a>
+{% endblock %}

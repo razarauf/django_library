@@ -1,0 +1,32 @@
+{% extends "libs/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h3>Search for "{{tagName}}" tag:</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Book title</th>
+            <th>Library</th>
+            <th>All the books in the Library</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for eachTag in allTheTags %}
+        <tr>
+            <td>
+                {{eachTag.tag.title}}
+            </td>
+            <td>
+                {{eachTag.tag.library.name}}
+            </td>
+            <td>
+                <a href="{% url 'libs:booksInLibrary' eachTag.tag.library.id %}">Link</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

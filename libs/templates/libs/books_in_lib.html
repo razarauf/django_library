@@ -1,0 +1,36 @@
+{% extends "libs/base.html" %}
+{% block content %}
+<h3>Books in {{library.name}}</h3>
+
+{% if library.book_set.all %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Tags</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for book in library.book_set.all %}
+        <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>
+                {% for tag in book.booktags_set.all %}
+                    {{tag}},
+                {% endfor %}
+                <br>
+                <a href="{% url 'libs:addTagView' book.id %}">Add Tag</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+    <p>There are no books!!!</p>
+{% endif %}
+<br>
+<a href="{% url 'libs:addBookView' library.id %}">Add a Book</a>
+{% endblock %}
