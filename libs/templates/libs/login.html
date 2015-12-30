@@ -1,0 +1,14 @@
+{% extends "libs/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h3>Login</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <!--Name of the Library: <input type="text" name="lib_name">-->
+    <input class="btn btn-xs btn-primary" type="submit" value="Login"/>
+</form>
+    <h3>OR:</h3>
+    <a href="{% url 'libs:signUpView' %}">Sign Up</a>
+{% endblock %}

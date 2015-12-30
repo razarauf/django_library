@@ -11,8 +11,12 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#contact">About</a></li>
                 <li><a href="{% url 'libs:addLibraryView' %}">Add Library</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'libs:logoutView' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'libs:loginView' %}">Login</a></li>
+                {% endif %}
             </ul>
             <form action="{% url 'libs:searchTag' %}" method="post" class="navbar-form navbar-right">
                 {% csrf_token %}

@@ -1,5 +1,10 @@
 {% extends "libs/base.html" %}
 {% block content %}
+
+{% if user.is_authenticated %}
+<h2>Hello {{ user.username }}!</h2>
+{% endif %}
+
 <h3>Libraries: </h3>
 
 {% if last_5_libraries %}

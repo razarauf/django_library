@@ -1,0 +1,21 @@
+{% extends "libs/base.html" %}
+{% block content %}
+
+<form class="form-signin" action="{% url 'libs:signUp' %}" method="post">
+    {% csrf_token %}
+    <h2 class="form-signin-heading">Please Sign Up</h2>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <label for="inputUsername" class="sr-only">username</label>
+    <input id="inputUsername" name="signUpUsername" class="form-control" placeholder="username" required autofocus>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" id="inputEmail" name="signUpEmail" class="form-control" placeholder="Email address" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" name="signUpPassword" class="form-control" placeholder="Password" required>
+    <!--<div class="checkbox">-->
+      <!--<label>-->
+        <!--<input type="checkbox" value="remember-me"> Remember me-->
+      <!--</label>-->
+    <!--</div>-->
+    <button class="btn btn-ms btn-primary btn-block" type="submit">Sign Up</button>
+</form>
+{% endblock %}

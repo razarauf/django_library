@@ -8,5 +8,9 @@ urlpatterns = [
     url(r'^addTag/(?P<book_id>[0-9]+)/$', views.addTagView, name="addTagView"),
     url(r'^searchTag/$', views.searchTag, name="searchTag"),
 
+    url(r'^accounts/signUp/$', views.signUpView, name="signUpView"),
+    url(r'^accounts/login/$', views.loginView, name="loginView"),
+    url(r'^accounts/logout/$', views.logoutView, name="logoutView"),
+
     url(r'^booksInLibrary/(?P<lib_id>[0-9]+)/$', views.booksInLibrary, name="booksInLibrary"),
 ]
